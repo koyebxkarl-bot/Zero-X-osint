@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Admins – OSINT Bot</title>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #2f81f7;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px;
+      background: #0b1320;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: var(--text);
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Optional Navbar -->
+
+  <header>
+    <h1>Contact the Admin Team</h1>
+  </header>
+
+  <section>
+    <div class="card">
+      <p>
+        Use the form below to contact the administrators regarding questions,
+        feedback, access issues, or general concerns.
+      </p>
+
+      <!-- Mailto-based contact form -->
+      <form action="mailto:admin@example.com" method="POST" enctype="text/plain">
+        <label for="name">Your Name (optional)</label>
+        <input type="text" id="name" name="Name" placeholder="Your name">
+
+        <label for="email">Your Email (optional)</label>
+        <input type="email" id="email" name="Email" placeholder="you@example.com">
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="Subject" placeholder="Reason for contacting">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="Message" placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p class="note">
+        This form opens your email client to send the message.
+        The website does not store or process submissions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>When to Use This Page</h2>
+      <ul>
+        <li>General questions</li>
+        <li>Feedback or suggestions</li>
+        <li>Technical issues</li>
+        <li>Access-related concerns</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 • <a href="index.html">Home</a> • <a href="contact.html">Abuse Reports</a> • <a href="privacy.html">Privacy</a>
+  </footer>
+
+</body>
+</html>
