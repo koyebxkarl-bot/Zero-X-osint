@@ -12,6 +12,8 @@
       --text: #c9d1d9;
       --muted: #8b949e;
       --accent: #2f81f7;
+      --success: #2ea043;
+      --error: #f85149;
     }
 
     * {
@@ -23,46 +25,9 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
     }
 
-    nav {
-      background: #0b1320;
-      border-bottom: 1px solid #30363d;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-inner a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 16px;
-      font-size: 0.95rem;
-    }
-
-    .nav-inner a:hover {
-      color: var(--accent);
-    }
-
-    header {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    section {
+    header, section {
       max-width: 900px;
       margin: auto;
       padding: 20px;
@@ -70,16 +35,15 @@
 
     .card {
       background: var(--card);
-      border-radius: 10px;
       padding: 20px;
-      margin-bottom: 20px;
+      border-radius: 10px;
     }
 
     label {
       display: block;
       margin-top: 15px;
-      font-size: 0.9rem;
       color: var(--muted);
+      font-size: 0.9rem;
     }
 
     input, textarea {
@@ -94,7 +58,6 @@
 
     textarea {
       min-height: 120px;
-      resize: vertical;
     }
 
     button {
@@ -108,85 +71,84 @@
       cursor: pointer;
     }
 
-    .note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 10px;
+    .msg {
+      margin-top: 15px;
+      font-size: 0.9rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: var(--muted);
-      font-size: 0.9rem;
+    .success {
+      color: var(--success);
+    }
+
+    .error {
+      color: var(--error);
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="nav-inner">
-      <strong>OSINT Bot</strong>
-      <div>
-        <a href="index.html">Home</a>
-        <a href="bot.html">Bot</a>
-        <a href="faq.html">FAQ</a>
-        <a href="ethics.html">Ethics</a>
-        <a href="contact-admins.html">Contact Admins</a>
-      </div>
-    </div>
-  </nav>
+<header>
+  <h1>Contact Admins</h1>
+</header>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Contact the Admin Team</h1>
-  </header>
+<section>
+  <div class="card">
+    <form id="contactForm">
+      <label>Your Name (optional)</label>
+      <input type="text" name="name">
 
-  <section>
-    <div class="card">
-      <p>
-        Use the form below to contact the administrators for questions,
-        feedback, technical issues, or general concerns.
-      </p>
+      <label>Your Email (optional)</label>
+      <input type="email" name="email">
 
-      <!-- WORKING FORM (Formspree) -->
-      <form action="https://formspree.io/f/mrbndqab" method="POST">
+      <label>Subject</label>
+      <input type="text" name="subject" required>
 
-        <label for="name">Your Name (optional)</label>
-        <input type="text" id="name" name="name" placeholder="Your name">
+      <label>Message</label>
+      <textarea name="message" required></textarea>
 
-        <label for="email">Your Email (optional)</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com">
+      <!-- spam trap -->
+      <input type="text" name="_gotcha" style="display:none">
 
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Reason for contacting" required>
+      <button type="submit">Send Message</button>
+      <div id="formMsg" class="msg"></div>
+    </form>
+  </div>
+</section>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+<script>
+  const form = document.getElementById("contactForm");
+  const msg = document.getElementById("formMsg");
 
-        <!-- Honeypot spam protection -->
-        <input type="text" name="_gotcha" style="display:none">
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    msg.textContent = "Sending...";
+    msg.className = "msg";
 
-        <!-- Email subject -->
-        <input type="hidden" name="_subject" value="New Admin Contact Message">
+    const data = new FormData(form);
 
-        <!-- Optional success page -->
-        <input type="hidden" name="_next" value="success.html">
+    try {
+      const res = await fetch("https://formspree.io/f/mrbndqab", {
+        method: "POST",
+        body: data,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
 
-        <button type="submit">Send Message</button>
-      </form>
-
-      <p class="note">
-        Messages are sent directly to <strong>koyebxkarl@gmail.com</strong>.  
-        This website does not store or log submissions.
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 • OSINT Bot • No data stored
-  </footer>
+      if (res.ok) {
+        msg.textContent = "Message sent successfully. Admins will respond soon.";
+        msg.className = "msg success";
+        form.reset();
+      } else {
+        msg.textContent = "Failed to send message. Try again later.";
+        msg.className = "msg error";
+      }
+    } catch {
+      msg.textContent = "Network error. Please try again.";
+      msg.className = "msg error";
+    }
+  });
+</script>
 
 </body>
 </html>
