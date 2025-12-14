@@ -147,12 +147,11 @@
     <div class="card">
       <p>
         Use the form below to contact the administrators for questions,
-        feedback, technical issues, or concerns.
+        feedback, technical issues, or general concerns.
       </p>
 
-      <!-- FORM -->
-      <!-- IMPORTANT: Replace abcdwxyz with your real Formspree ID -->
-      <form action="https://formspree.io/f/abcdwxyz" method="POST">
+      <!-- WORKING FORM (Formspree) -->
+      <form action="https://formspree.io/f/mrbndqab" method="POST">
 
         <label for="name">Your Name (optional)</label>
         <input type="text" id="name" name="name" placeholder="Your name">
@@ -166,11 +165,14 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
 
-        <!-- Spam protection -->
+        <!-- Honeypot spam protection -->
         <input type="text" name="_gotcha" style="display:none">
 
         <!-- Email subject -->
         <input type="hidden" name="_subject" value="New Admin Contact Message">
+
+        <!-- Optional success page -->
+        <input type="hidden" name="_next" value="success.html">
 
         <button type="submit">Send Message</button>
       </form>
