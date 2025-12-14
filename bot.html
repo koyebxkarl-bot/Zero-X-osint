@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bot Usage – OSINT Telegram Bot</title>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #2f81f7;
+      --warning: #f85149;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .command {
+      background: #0b1320;
+      border: 1px solid #30363d;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: monospace;
+      margin: 10px 0;
+      color: #e6edf3;
+    }
+
+    .note {
+      border-left: 4px solid var(--warning);
+      padding-left: 15px;
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Telegram Bot Usage</h1>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>Overview</h2>
+      <p>
+        This page provides a general overview of the Telegram bot’s interface and
+        command structure. The website does not execute commands or display live
+        results.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Basic Commands</h2>
+
+      <div class="command">/start</div>
+      <p>Displays introductory information and usage guidance.</p>
+
+      <div class="command">/help</div>
+      <p>Shows available commands and general instructions.</p>
+
+      <div class="command">/info</div>
+      <p>Returns informational output based on supported public data sources.</p>
+
+      <div class="command">/about</div>
+      <p>Displays details about the bot and its intended purpose.</p>
+    </div>
+
+    <div class="card">
+      <h2>Example Output (Redacted)</h2>
+      <p>
+        For safety and privacy reasons, example outputs are shown only in a
+        redacted or placeholder format.
+      </p>
+
+      <div class="command">
+        Result:<br>
+        Status: Available<br>
+        Region: XX<br>
+        Source: Public dataset<br>
+        Confidence: Medium
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Usage Limitations</h2>
+      <ul>
+        <li>Results may be incomplete or outdated</li>
+        <li>No guarantee of accuracy</li>
+        <li>Rate limits may apply</li>
+        <li>Access may be restricted at any time</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Important Notice</h2>
+      <p class="note">
+        The bot must not be used for harassment, stalking, profiling, or any
+        activity that violates privacy or applicable law. Misuse may result in
+        permanent access restrictions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Access the Bot</h2>
+      <p>
+        Use the button below to open the Telegram bot. By using the bot, you agree
+        to its terms, disclaimer, and responsible use guidelines.
+      </p>
+      <p>
+        <a href="https://t.me/YOUR_BOT_USERNAME" target="_blank">
+          Open Bot on Telegram →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 • <a href="index.html">Home</a> • <a href="disclaimer.html">Disclaimer</a>
+  </footer>
+
+</body>
+</html>
