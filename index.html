@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OSINT Bot – Information & Disclaimer</title>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #2f81f7;
+      --danger: #f85149;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .cta {
+      margin-top: 30px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .card ul {
+      padding-left: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Warning Popup */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .popup {
+      background: var(--card);
+      max-width: 500px;
+      width: 90%;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #30363d;
+    }
+
+    .popup h3 {
+      color: var(--danger);
+      margin-top: 0;
+    }
+
+    .popup p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .popup button {
+      margin-top: 15px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .accept {
+      background: var(--accent);
+      color: #fff;
+      margin-right: 10px;
+    }
+
+    .leave {
+      background: #30363d;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Warning Popup -->
+  <div class="overlay" id="warningPopup">
+    <div class="popup">
+      <h3>⚠ Important Warning</h3>
+      <p>
+        This website only provides information about a Telegram bot.  
+        Misuse of any information for harassment, stalking, or privacy invasion
+        is strictly prohibited.
+      </p>
+      <p>
+        By continuing, you confirm that you understand and accept full
+        responsibility for your actions.
+      </p>
+      <button class="accept" onclick="acceptWarning()">I Understand</button>
+      <button class="leave" onclick="leaveSite()">Leave</button>
+    </div>
+  </div>
+
+  <header>
+    <h1>OSINT Telegram Bot</h1>
+    <p>
+      An informational website describing an OSINT-focused Telegram bot.
+      This platform does not perform searches or collect personal data.
+    </p>
+
+    <div class="cta">
+      <a href="https://t.me/YOUR_BOT_USERNAME" target="_blank">
+        Open Bot on Telegram
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>What This Bot Is</h2>
+      <p>
+        This Telegram bot is designed for educational and informational purposes
+        related to open-source intelligence (OSINT). It demonstrates how publicly
+        available data may be organized and analyzed.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Intended Use</h2>
+      <ul>
+        <li>Educational research</li>
+        <li>Awareness of data exposure risks</li>
+        <li>Understanding OSINT concepts</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Prohibited Use</h2>
+      <ul>
+        <li>Harassment or stalking</li>
+        <li>Doxxing or intimidation</li>
+        <li>Impersonation or fraud</li>
+        <li>Any illegal or unethical activity</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 • Informational Website • No data is collected or stored
+  </footer>
+
+  <script>
+    const popup = document.getElementById("warningPopup");
+
+    if (!localStorage.getItem("warningAccepted")) {
+      popup.style.display = "flex";
+    }
+
+    function acceptWarning() {
+      localStorage.setItem("warningAccepted", "true");
+      popup.style.display = "none";
+    }
+
+    function leaveSite() {
+      window.location.href = "https://www.google.com";
+    }
+  </script>
+
+</body>
+</html>
